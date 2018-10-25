@@ -3,15 +3,24 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const flash = require('connect-flash')
+const session = require('express-session')
+const methodOverride = require('method-override')
+const passport = require('passport')
 
 var indexRouter = require('./routes/index');
 var userRouter = require('./routes/user');
+var morgan = require('morgan')
 
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+
+
+//Provides extra data in our server logs
+app.use(morgan('dev'))
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -52,6 +61,11 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+
+app.use(function (req, res, next) {
+  res.locals.currentUser = req.user;
+  next();
 });
 
 module.exports = app;
