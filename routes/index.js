@@ -1,9 +1,28 @@
-var express = require('express');
-var router = express.Router();
+let express = require('express')
+let router = express.Router()
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+const applicationController = require('../controllers/application')
+const authController = require('../controllers/auth')
 
-module.exports = router;
+// GET /
+router.get('/', applicationController.index)
+
+// Restricted (cool people only!)
+router.get('/secret', applicationController.secret)
+
+// GET /signup
+router.get('/signup', authController.signUp)
+
+// POST /signup
+router.post('/signup', authController.createUser)
+
+// GET /login
+router.get('/login', authController.logIn)
+
+// POST /login
+router.post('/login', authController.checkUser)
+
+// GET /logout
+router.get('/logout', authController.logOut)
+
+module.exports = router
