@@ -22,6 +22,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/user', userRouter);
 
+//allows us to make put/patch and delete requests
+app.use(methodOverride('_method'))
 
 //used by passport to handle sessions
 app.use(session({ secret: 'WDI-GENERAL-ASSEMBLY-EXPRESS' }))
