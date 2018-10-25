@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var userRouter = require('./routes/user');
 
 var app = express();
 
@@ -20,7 +20,21 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/user', userRouter);
+
+
+//used by passport to handle sessions
+app.use(session({ secret: 'WDI-GENERAL-ASSEMBLY-EXPRESS' }))
+app.use(flash())
+
+// Creates an instance of passport to be used in Express
+app.use(passport.initialize())
+// Sets up sessions to remember a user.
+app.use(passport.session())
+
+// This is where we will build out our custom passport configurations
+require('./config/passport')(passport)
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
