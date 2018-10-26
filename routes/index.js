@@ -7,6 +7,9 @@ const authController = require('../controllers/auth')
 // GET /
 router.get('/', applicationController.index)
 
+// Restricted (cool people only!)
+router.get('/secret', applicationController.secret)
+
 // GET /signup
 router.get('/signup', authController.signUp)
 

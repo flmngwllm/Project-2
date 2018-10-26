@@ -1,38 +1,43 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
+const createError = require('http-errors');
+const express = require('express');
+const app = express();
+const path = require('path');
 var logger = require('morgan');
 const flash = require('connect-flash')
+const morgan = require('morgan')
+const cookieParser = require('cookie-parser');
 const session = require('express-session')
 const methodOverride = require('method-override')
+const routes = require('./routes/index');
 const passport = require('passport')
 
-var indexRouter = require('./routes/index');
-var userRouter = require('./routes/user');
-var morgan = require('morgan')
 
-var app = express();
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
+
 
 
 //Provides extra data in our server logs
 app.use(morgan('dev'))
 
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/user', userRouter);
+app.use(cookieParser());
+app.use(logger('dev'));
+
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 
 //allows us to make put/patch and delete requests
 app.use(methodOverride('_method'))
+
+
+// view engine setup
+// app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'hbs');
+app.use(express.static(__dirname + '/public'))
+
+
 
 //used by passport to handle sessions
 app.use(session({ secret: 'WDI-GENERAL-ASSEMBLY-EXPRESS' }))
@@ -46,6 +51,9 @@ app.use(passport.session())
 // This is where we will build out our custom passport configurations
 require('./config/passport')(passport)
 
+
+
+app.use('/', routes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -61,11 +69,6 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
-});
-
-app.use(function (req, res, next) {
-  res.locals.currentUser = req.user;
-  next();
 });
 
 module.exports = app;
