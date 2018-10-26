@@ -25,4 +25,15 @@ router.post('/login', authController.checkUser)
 // GET /logout
 router.get('/logout', authController.logOut)
 
+
+// router.get('/tournaments', tournamentsController.index)
+
+// router.post('/thread', postsController.index)
+
+// router.get('/')
+
+// router.get('')
+
+
+
 module.exports = router
