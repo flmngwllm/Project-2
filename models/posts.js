@@ -1,7 +1,9 @@
 const mongoose = require('../db/connection')
+const ObjectId = Schema.ObjectId
+
 
 const Posts = mongoose.Schema({
-    thread: ,
+    thread: ObjectId,
     date: {type: Date, default: Date.now},
     description: String,
     author: {type: String, default: 'Anon' 
