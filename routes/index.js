@@ -28,9 +28,9 @@ router.get('/logout', authController.logOut)
 
 // router.get('/tournaments', tournamentsController.index)
 
-// router.post('/thread', postsController.index)
+// router.post('/thread', threadsController.index)
 
-// router.get('/')
+// router.get('/', threadsController.index)
 
 // router.get('')
 

@@ -6,6 +6,7 @@ const User = mongoose.Schema({
     email: String,
     password: String
   }
+  
 })
 
 User.methods.encrypt = function(password) {
