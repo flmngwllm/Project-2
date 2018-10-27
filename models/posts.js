@@ -1,6 +1,4 @@
 const mongoose = require('../db/connection')
-const ObjectId = Schema.ObjectId
-
 
 const Posts = mongoose.Schema({
     thread: {
