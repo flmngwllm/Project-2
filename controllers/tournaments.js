@@ -1,7 +1,24 @@
+const Tournaments = require('../models/Tournaments')
+
 const tournamentsController = {
+
     index: (req, res) =>{
-        res.render('tournaments')
+        Tournaments.find().then((tournaments) => {
+            res.render('tournaments', {tournaments: tournaments
+            })
+
+        })
+    
+    },
+
+
+    create: (req, res) => {
+        Tournaments.create(req.body).then((newTournaments) =>{
+            res.redirect(`/${newTournaments._id}`)
+        })
     }
+
+
 }
 
 

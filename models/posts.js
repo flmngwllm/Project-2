@@ -1,6 +1,7 @@
 const mongoose = require('../db/connection')
+const Schema = mongoose.Schema
 
-const Posts = mongoose.Schema({
+const Posts = new Schema({
     thread: {
         type: Schema.Types.ObjectId,
         ref: 'Thread'

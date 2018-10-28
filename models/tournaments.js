@@ -1,12 +1,17 @@
 const mongoose = require('../db/connection')
-const ObjectId = Schema.ObjectId
+const Schema = mongoose.Schema
 
 
-const Tournaments = mongoose.Schema({
+const Tournaments = new Schema({
     name: String,
     location: String,
+    date: String,
     description: String,
-    thread: ObjectId
+    games: String,
+    thread: {
+        type: Schema.Types.ObjectId,
+        ref: 'Thread'
+      }
 
 })
 

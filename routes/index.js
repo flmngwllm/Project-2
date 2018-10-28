@@ -4,6 +4,7 @@ let router = express.Router()
 const applicationController = require('../controllers/application')
 const authController = require('../controllers/auth')
 const tournamentsController = require('../controllers/tournaments')
+const threadController = require('../controllers/thread')
 
 // GET /
 router.get('/', applicationController.index)
@@ -29,12 +30,14 @@ router.get('/logout', authController.logOut)
 
 router.get('/tournaments', tournamentsController.index)
 
-// router.post('/thread', threadsController.index)
+// router.get('/tournaments', tournamentsController.index)
 
-// router.get('/', threadsController.index)
 
-// router.get('')
+router.post('/thread', threadController.post)
 
+ router.get('/thread:title.:format?', threadController.show)
+
+ router.get('/thread', threadController.list)
 
 
 module.exports = router
