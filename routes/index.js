@@ -30,14 +30,27 @@ router.get('/logout', authController.logOut)
 
 router.get('/tournaments', tournamentsController.index)
 
-// router.get('/tournaments', tournamentsController.index)
+router.get('/:id', tournamentsController.info)
 
 
 router.post('/thread', threadController.post)
 
- router.get('/thread:title.:format?', threadController.show)
 
- router.get('/thread', threadController.list)
+router.get('/thread:title.:format?', threadController.show)
+
+ 
+router.get('/thread', threadController.list)
+
+
+router.post('/thread/post', postsController.create)
+
+
+
+// router.delete(postsController.delete)
+
+
+
+
 
 
 module.exports = router

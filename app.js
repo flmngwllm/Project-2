@@ -1,7 +1,7 @@
 const createError = require('http-errors');
 const express = require('express');
 const app = express();
-const path = require('path');
+ const path = require('path');
 var logger = require('morgan');
 const flash = require('connect-flash')
 const morgan = require('morgan')
@@ -33,9 +33,10 @@ app.use(methodOverride('_method'))
 
 
 // view engine setup
-// app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.use(express.static(__dirname + '/public'))
+app.use(express.static(path.join(__dirname, 'public')));
 
 
 

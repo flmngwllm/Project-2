@@ -7,7 +7,6 @@ const Posts = new Schema({
         ref: 'Thread'
       },
     date: {type: Date, default: Date.now},
-    description: String,
     author: {type: String, default: 'Anon' 
     },
     post: String

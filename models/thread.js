@@ -5,7 +5,7 @@ const Schema = mongoose.Schema
 const Thread = new Schema({
     title: String,
     postDate: {type: Date, default: Date.now},
-    author: {type: String,
+    author: {type: String
     },
 })
 

@@ -5,19 +5,25 @@ const Posts = require('../models/Posts')
 
 const threadController = {
 
+
+//create a new thread
 post: (req, res) => {
-   new Thread({
+   Thread.create({
         title: req.body.title,
         author: req.body.author 
-    }).save()
+    }).then(newThread => {
+        res.redirect(`/${newThread._id}`)
+    })
 
 },
+
 
 list: (req, res) => {
     Thread.find().then((threads) =>{
         res.send(threads)
     })
 },
+
 
 show: (req, res) => {
     Thread.findOne(
@@ -28,7 +34,7 @@ show: (req, res) => {
         })
 }
 
-}
+    }
 
 
 module.exports = threadController
