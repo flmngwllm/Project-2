@@ -5,7 +5,11 @@ const User = mongoose.Schema({
   local: {
     email: String,
     password: String
-  }
+  },
+   post: {
+    type: Schema.Types.ObjectId,
+    ref: 'Posts'
+  },
   
 })
 

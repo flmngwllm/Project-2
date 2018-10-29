@@ -27,9 +27,10 @@ router.post('/login', authController.checkUser)
 // GET /logout
 router.get('/logout', authController.logOut)
 
-
+// Get /tournaments
 router.get('/tournaments', tournamentsController.index)
 
+//GET /:id
 router.get('/:id', tournamentsController.info)
 
 
@@ -45,8 +46,9 @@ router.get('/thread', threadController.list)
 router.post('/thread/post', postsController.create)
 
 
+router.edit('posts/:id/edit', postsController.edit)
 
-// router.delete(postsController.delete)
+router.delete('posts/:id', postsController.delete)
 
 
 
