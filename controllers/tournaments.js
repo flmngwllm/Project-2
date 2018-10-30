@@ -13,17 +13,17 @@ const tournamentsController = {
 
 
       info: (req, res) => {
-        Tournaments.findById(req.params.id).then((tournaments) =>{
+        Tournaments.findById(req.params.tournamentsId).then((tournaments) =>{
           res.render('tournaments/info', {tournaments: tournaments})
         })
       },
 
 
-    // create: (req, res) => {
-    //     Tournaments.create(req.body).then((newTournaments) =>{
-    //         res.redirect(`/${newTournaments._id}`)
-    //     })
-    // }
+    create: (req, res) => {
+        Tournaments.create(req.body).then((newTournaments) =>{
+            res.redirect(`/${newTournaments._id}`)
+        })
+    }
 
 
 }

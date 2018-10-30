@@ -9,7 +9,7 @@ const threadController = {
     index: (req, res) => {
         Thread.find({}).populate('posts')
             .then((thread) => {
-                res.render('thread/index', {
+                res.render('thread', {
                     thread: thread
 
                 })
@@ -22,17 +22,11 @@ const threadController = {
             title: req.body.title,
             author: req.body.author
         }).then(newThread => {
-            res.redirect(`/${newThread._id}`)
+            res.redirect(`thread/${newThread._id}`)
         })
 
     },
 
-
-    // list: (req, res) => {
-    //     Thread.find().then((threads) => {
-    //         res.render(threads)
-    //     })
-    // },
 
 
     new: (req, res) => {
@@ -41,10 +35,20 @@ const threadController = {
 
 
     show: (req, res) => {
-        Thread.findById(req.params.id).then(Mposts => {
-            res.send({
-                posts: Mposts
+        const threadId = req.params.threadId
+        Thread.findById(threadId).populate('posts')
+            .then((threads) => {
+                console.log(threads)
+                res.render('thread/show', {
+                    thread: threads
+                })
             })
+
+    },
+
+    delete: (req, res) => {
+        Thread.findByIdAndRemove(req.params.id).then(() => {
+            res.redirect(`thread/${thread._id}`)
         })
     }
 

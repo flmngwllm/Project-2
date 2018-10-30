@@ -1,0 +1,15 @@
+
+<form action="{{../thread._id}}/posts/{{_id}}?_method=DELETE" method = "">
+<button type = "submit">Delete</button>
+
+<h1> {{thread.title}}</h1>
+
+{{#each thread.posts}}
+
+{{post}}
+<a href ="{{../thread._id}}/posts/{{_id}}/edit">edit post</a>
+<a href ="{{../thread._id}}/posts/{{_id}}/posts">new post</a>
+<form action="{{../thread._id}}/posts/{{_id}}?_method=DELETE" method = "">
+<button type = "submit">Delete</button>
+
+{{/each}}

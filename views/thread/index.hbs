@@ -1,3 +1,15 @@
 
 
 <a href ="">New Thread</a>
+
+{{#each thread}}
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="images/210.png" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"></h5>
+    <p class="card-text"><a href ="/thread/{{_id}}">{{title}}</a></h5></p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+{{/each}}

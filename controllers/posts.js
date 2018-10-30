@@ -14,20 +14,20 @@ create:(req, res) => {
     post: req.body.post,
     author: req.body.author
 }).then(newPost => {
-    res.redirect(`/${newPost._id}`)
+    res.redirect(`posts/${newPost._id}`)
 })   
 },
 
 
 delete:(req, res) => {
     Posts.findByIdAndRemove(req.params.id).then(()=>{
-        res.redirect()
+        res.redirect(`posts/${posts._id}`)
     })
 },
 
 
 edit:(req, res) => {
-    Posts.fingById(req.params.id).then(posts =>{
+    Posts.findById(req.params.id).then(posts =>{
         res.render("posts/edit")
     })
 },
