@@ -4,6 +4,10 @@ const User = require('../models/User')
 const postsController = {
 
 
+new: (req, res) => {
+    res.render('posts/new')
+    },
+
 
 create:(req, res) => {
     Posts.create({ 

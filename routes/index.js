@@ -5,11 +5,11 @@ const applicationController = require('../controllers/application')
 const authController = require('../controllers/auth')
 const tournamentsController = require('../controllers/tournaments')
 const threadController = require('../controllers/thread')
+const postsController = require('../controllers/posts')
 
 // GET /
 router.get('/', applicationController.index)
 
-// Restricted (cool people only!)
 router.get('/secret', applicationController.secret)
 
 // GET /signup
@@ -30,26 +30,28 @@ router.get('/logout', authController.logOut)
 // Get /tournaments
 router.get('/tournaments', tournamentsController.index)
 
-//GET /:id
+
 router.get('/:id', tournamentsController.info)
 
+router.get('thread/new', threadController.new)
 
-router.post('/thread', threadController.post)
 
-
-router.get('/thread:title.:format?', threadController.show)
+router.get('/thread/:id', threadController.show)
 
  
-router.get('/thread', threadController.list)
+router.get('/thread', threadController.index)
 
 
-router.post('/thread/post', postsController.create)
+router.get('/thread/:threadId/posts/new', postsController.new)
 
 
-router.edit('posts/:id/edit', postsController.edit)
+router.post('/thread/:threadId/posts', postsController.create)
 
-router.delete('posts/:id', postsController.delete)
 
+
+router.get('/thread/:threadId/posts/:postsId/edit', postsController.edit)
+
+router.delete('thread/:threadId/posts/:id', postsController.delete)
 
 
 

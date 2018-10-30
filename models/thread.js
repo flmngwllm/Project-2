@@ -7,6 +7,13 @@ const Thread = new Schema({
     postDate: {type: Date, default: Date.now},
     author: {type: String
     },
+
+    posts: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Posts'
+    }
+]
 })
 
 

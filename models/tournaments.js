@@ -8,10 +8,6 @@ const Tournaments = new Schema({
     date: String,
     description: String,
     games: String,
-    thread: {
-        type: Schema.Types.ObjectId,
-        ref: 'Thread'
-      }
 
 })
 
