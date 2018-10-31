@@ -14,19 +14,21 @@ create:(req, res) => {
     post: req.body.post,
     author: req.body.author
 }).then(newPost => {
-    res.redirect(`posts/${newPost._id}`)
+    res.redirect(`posts/${posts._id}`)
 })   
 },
 
 
 update: (req, res) => {
-    Posts.findByIdAndUpdate(req.params.id, req.body).then((updatedPosts)=>{
-        res.redirect(`posts/${req.params.id}`)
+    const postsId = req.params.postsId
+    Posts.findByIdAndUpdate(postsId, req.body).then((updatedPosts)=>{
+        res.redirect(`posts/${posts._id}`)
     })
 },
 
 delete:(req, res) => {
-    Posts.findByIdAndRemove(req.params.id).then(()=>{
+    const postsId = req.params.postsId
+    Posts.findByIdAndRemove(postsId).then(()=>{
         res.redirect(`posts/${posts._id}`)
     })
 },

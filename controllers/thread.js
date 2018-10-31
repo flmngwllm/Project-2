@@ -17,12 +17,11 @@ const threadController = {
     },
 
     //create a new thread
-    post: (req, res) => {
+    create: (req, res) => {
         Thread.create({
             title: req.body.title,
-            author: req.body.author
-        }).then(newThread => {
-            res.redirect(`thread/${newThread._id}`)
+        }).then(thread => {
+            res.redirect(`thread/${thread._id}`)
         })
 
     },
@@ -53,8 +52,9 @@ const threadController = {
     },
 
     delete: (req, res) => {
-        Thread.findByIdAndRemove(req.params.id).then(() => {
-            res.redirect(`thread/${thread._id}`)
+        
+        Thread.findByIdAndRemove(req.params.threadId).then(() => {
+            res.redirect(`/${thread._id}`)
         })
     }
 

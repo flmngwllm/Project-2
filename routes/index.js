@@ -37,12 +37,13 @@ router.get('/thread', threadController.index)
 
 router.get('/thread/new', threadController.new)
 
+router.post('/thread/', threadController.create)
 
 router.get('/thread/:threadId', threadController.show)
 
 router.put('/thread/:threadId', threadController.update)
 
-router.delete('/thread/:threadId', threadController.delete)
+router.delete('/thread/:threadId/', threadController.delete)
  
 
 
