@@ -16,6 +16,16 @@ const threadController = {
             })
     },
 
+    edit: (req, res) => {
+        Thread.findById(req.params.threadId).then(thread => {
+            console.log(thread)
+            res.render("thread/edit", {
+                thread: thread
+            })
+
+        })
+    },
+
     //create a new thread
     create: (req, res) => {
         Thread.create({
@@ -46,15 +56,15 @@ const threadController = {
     },
 
     update: (req, res) => {
-        Thread.findByIdAndUpdate(req.params.id, req.body).then((updatedThread)=>{
-            res.redirect(`thread/${req.params.id}`)
+        Thread.findByIdAndUpdate(req.params.threadId, req.body).then((updatedThread) => {
+            res.redirect(`/thread`)
         })
     },
 
     delete: (req, res) => {
-        
-        Thread.findByIdAndRemove(req.params.threadId).then(() => {
-            res.redirect(`/${thread._id}`)
+
+        Thread.findByIdAndRemove(req.params.threadId, req.body).then(() => {
+            res.redirect(`/thread`)
         })
     }
 

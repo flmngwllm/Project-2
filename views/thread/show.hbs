@@ -7,9 +7,9 @@
 {{#each thread.posts}}
 
 {{post}}
-<a href ="{{../thread._id}}/posts/{{_id}}/edit">edit post</a>
-<a href ="{{../thread._id}}/posts/new">new post</a>
+<a href ="{{../thread._id}}/posts/{{_id}}/edit"><button type="button" class="btn btn-primary">edit post</button></a>
+<a href ="{{../thread._id}}/posts/new"><button type="button" class="btn btn-primary">new post</button></a>
 <form action="{{../thread._id}}/posts/{{_id}}?_method=DELETE" method = "">
-<button type = "submit">Delete</button>
+<input class="btn btn-primary" type="submit" value="Submit">Delete</button>
 
 {{/each}}
