@@ -1,5 +1,6 @@
 const Posts = require('../models/Posts')
 const User = require('../models/User')
+const Thread = require('../models/Thread')
 
 const postsController = {
 
@@ -12,8 +13,7 @@ new: (req, res) => {
 create:(req, res) => {
     Posts.create({ 
     post: req.body.post,
-    author: req.body.author
-}).then(newPost => {
+}).then(posts => {
     res.redirect(`posts/${posts._id}`)
 })   
 },
