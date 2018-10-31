@@ -3,6 +3,9 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+.info{
+  text-align: center;
+}
 a {
   color:orange;
 }
