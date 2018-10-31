@@ -19,6 +19,12 @@ create:(req, res) => {
 },
 
 
+update: (req, res) => {
+    Posts.findByIdAndUpdate(req.params.id, req.body).then((updatedPosts)=>{
+        res.redirect(`posts/${req.params.id}`)
+    })
+},
+
 delete:(req, res) => {
     Posts.findByIdAndRemove(req.params.id).then(()=>{
         res.redirect(`posts/${posts._id}`)

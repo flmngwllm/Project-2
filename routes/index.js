@@ -40,6 +40,8 @@ router.get('/thread/new', threadController.new)
 
 router.get('/thread/:threadId', threadController.show)
 
+router.put('/thread/:threadId', threadController.update)
+
 router.delete('/thread/:threadId', threadController.delete)
  
 
@@ -51,11 +53,11 @@ router.get('/thread/:threadId/posts/new', postsController.new)
 router.post('/thread/:threadId/posts', postsController.create)
 
 
-
 router.get('/thread/:threadId/posts/:postsId/edit', postsController.edit)
 
-router.delete('/thread/:threadId/posts/:postsId', postsController.delete)
+router.put('/thread/:threadId/posts/:postsId', postsController.update)
 
+router.delete('/thread/:threadId/posts/:postsId', postsController.delete)
 
 
 

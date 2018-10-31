@@ -46,6 +46,12 @@ const threadController = {
 
     },
 
+    update: (req, res) => {
+        Thread.findByIdAndUpdate(req.params.id, req.body).then((updatedThread)=>{
+            res.redirect(`thread/${req.params.id}`)
+        })
+    },
+
     delete: (req, res) => {
         Thread.findByIdAndRemove(req.params.id).then(() => {
             res.redirect(`thread/${thread._id}`)
