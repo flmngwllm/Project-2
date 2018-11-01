@@ -1,6 +1,8 @@
 
 <form action="/thread/{{thread._id}}?_method=DELETE" method = "post">
-<button type = "submit">Delete</button>
+<button type="button" class="btn btn-primary">Delete</button>
+<a href ="{{../thread._id}}/posts/new"><button type="button" class="btn btn-primary">New Post</button></a>
+
 
 <h1> {{thread.title}}</h1>
 
@@ -23,8 +25,8 @@
  
 </div>
 
-<a href ="{{../thread._id}}/posts/{{_id}}/edit"><button type="button" class="btn btn-primary">edit post</button></a>
-<a href ="{{../thread._id}}/posts/new"><button type="button" class="btn btn-primary">new post</button></a>
+<a href ="{{../thread._id}}/posts/{{_id}}/edit"><button type="button" class="btn btn-primary">Edit Post</button></a>
+<a href ="{{../thread._id}}/posts/new"><button type="button" class="btn btn-primary">New post</button></a>
 <form action="{{../thread._id}}/posts/{{_id}}?_method=DELETE" method = "">
 <input class="btn btn-primary" type="submit" value="Delete"></button>
 

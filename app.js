@@ -41,7 +41,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 //used by passport to handle sessions
-app.use(session({ secret: 'WDI-GENERAL-ASSEMBLY-EXPRESS' }))
+app.use(session({ secret: '2-10 session' }))
 app.use(flash())
 
 // Creates an instance of passport to be used in Express

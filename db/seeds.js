@@ -74,9 +74,6 @@ Tournaments.create(newTournaments).then(tournaments =>{
     console.log('Saved Tournaments', tournaments)
 })
 
-// Tournaments.remove()
-// .then(() => console.log("Database seeded success"))
-// .then(() => mongoose.connection.close())
 
 Thread.remove({})
 // inserts products into kroger, target, etc..
