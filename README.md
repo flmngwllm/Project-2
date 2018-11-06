@@ -9,7 +9,9 @@ https://obscure-dawn-61814.herokuapp.com/
 
 ## Wireframe/ERD
 ![alt text](images/wire.jpg)
-![alt text]()
+![alt text](images/Wire1.jpg)
+![alt text](images/Wire2.jpg)
+![alt text](images/Wire3.jpg)
 
 # Trello
 ## https://trello.com/b/vr9K87Ln/project-2
