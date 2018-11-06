@@ -17,10 +17,10 @@ https://obscure-dawn-61814.herokuapp.com/
 ## https://trello.com/b/vr9K87Ln/project-2
 
 # Technologies
-## Jquery 
-## Javascript
-## MongoDB
-## Express
-## CSS
-## Handlebars
+### Jquery 
+### Javascript
+### MongoDB
+### Express
+### CSS
+### Handlebars
 
